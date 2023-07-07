@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BibliotecaVirtual.Models.Book>
+
+@{
+    ViewBag.Title = "Libros";
+}
+
+<h2>Libros</h2>
+
+<p>
+    @Html.ActionLink("Agregar libro", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Título
+        </th>
+        <th>
+            Editorial
+        </th>
+        <th>
+            Nombre del autor
+        </th>
+        <th>
+            Cantidad disponible
+        </th>
+        <th>
+            Fecha de registro
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Editorial)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Author.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.QuantityAvailable)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.Id_book }) |
+        @Html.ActionLink("Detalles", "Details", new { id = item.Id_book }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id_book })
+    </td>
+</tr>
+}
+
+</table>

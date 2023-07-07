@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BibliotecaVirtual.Models.Loan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Préstamos</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Usuario
+        </th>
+        <th>
+            Libro
+        </th>
+        <th>
+            Fecha de préstamo
+        </th>
+        <th>
+            Fecha de devolución prevista
+        </th>
+        <th>
+            Fecha de devolución real
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Book.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LoanDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ExpectedReturnDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ActualReturnDate)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.Id_loan }) |
+        @Html.ActionLink("Detalles", "Details", new { id = item.Id_loan }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id_loan })
+    </td>
+</tr>
+}
+
+</table>

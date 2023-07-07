@@ -1,0 +1,58 @@
+﻿@model BibliotecaVirtual.Models.Loan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Loan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedReturnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualReturnDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_loan }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

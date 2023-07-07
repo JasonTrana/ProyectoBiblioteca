@@ -1,0 +1,78 @@
+﻿@model BibliotecaVirtual.Models.Administration
+<link href="~/CSS/MyStyle.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Administracion";
+}
+
+<h2>Agregar</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @*<form action="@Url.Action("Create","Administrations")" method="post"></form>*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-offset-4 label-15-MS" for="Name">Nombre</label> @*style="color: greenyellow"*@
+        <div class="col-md-offset-4">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-offset-4 label-15-MS" for="LastName">Apellido</label>
+            <div class="col-md-offset-4">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-offset-4 label-15-MS" for="Address">Dirección</label>
+            <div class="col-md-offset-4">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-offset-4 label-15-MS" for="Email">Correo</label>
+            <div class="col-md-offset-4">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-offset-4 label-15-MS" for="Phone">Teléfono</label>
+            <div class="col-md-offset-4">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-offset-4 label-15-MS" for="Roles">Rol</label>
+            <div class="col-md-offset-4">
+                @Html.EnumDropDownListFor(model => model.Roles, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Roles, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-offset-4 label-15-MS" for="RegistrationDate">Fecha de registro</label>
+            <div class="col-md-offset-4">
+                <input type="datetime" name="RegistrationDate" value="@DateTime.Now" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-left: 35%">
+            <div class="col-md-offset-4 col-md-2" style="margin-left: 0%">
+                <input type="submit" value="Agregar" class="btn btn-default" style="margin: 0px 18px 0px 20px; padding: 5px 75px 5px 75px"/>
+            </div>
+        </div>
+    </div>
+}
